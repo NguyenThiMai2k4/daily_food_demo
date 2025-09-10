@@ -5,6 +5,7 @@
 ### Prerequisites
 - Python **3.8+**
 - `pip` (Python package manager)
+- Template **Boostrap**
 
 ### Steps to Run the Project
 
@@ -17,7 +18,7 @@
    pip install -r requirements.txt
 3. **Run the Streamlit app:**
    ```bash
-   streamlit run app.py
+   streamlit run page/home.py
 
 4. **Open the browser and navigate to**
    - Local URL: http://localhost:8501
