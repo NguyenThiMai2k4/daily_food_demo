@@ -12,7 +12,7 @@
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/your-username/tracking-daily-food.git
-   cd tracking-daily-food
+   cd daily_food_demo
 2. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
