@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import pickle
 
-df = pd.read_csv("df_clean_resampled.csv")
+df = pd.read_csv("df_final_resampled_fixed.csv")
 X = df.drop("label", axis=1)
 y = df["label"]
 

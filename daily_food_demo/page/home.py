@@ -70,8 +70,19 @@ st.markdown('<div class="header">🥗 Food Nutrition ML Demo</div>', unsafe_allo
 if selected == "Trang chủ":
     st.subheader("Giới thiệu")
     st.write("""
-    Đây là demo ứng dụng Machine Learning dự đoán mức năng lượng từ dữ liệu dinh dưỡng.  
-    Bạn có thể nhập các thông số về Protein, Carbohydrates, Fat cùng các thông tin liên quan để xem kết quả phân loại.
+        Đây là **demo ứng dụng Machine Learning** dự đoán **mức cân bằng dinh dưỡng** cho một bữa ăn 🍽️.  
+
+        ### 📖 Tiêu chuẩn tham khảo (WHO, USDA, RDA):
+        - **Calories:** 400–700 kcal → chiếm **20–30% nhu cầu/ngày**  
+        - **Carbs:** chiếm **45–65% tổng năng lượng**  
+        - **Protein:** chiếm **10–35% tổng năng lượng**  
+        - **Fat:** chiếm **20–35% tổng năng lượng** (*giới hạn chất béo bão hòa < 10%*)  
+        - **Fiber (chất xơ):** 8–10 g/bữa (≈ 25–30 g/ngày)  
+        - **Sugar (đường):** < 10% tổng năng lượng  
+        - **Sodium (muối):** < 2 g NaCl/bữa (≈ 5 g/ngày)  
+
+        👉 Bạn có thể **nhập các chỉ số dinh dưỡng** (Calories, Protein, Carbs, Fat, Fiber, Sugar, Sodium)  
+        để kiểm tra xem bữa ăn **cân bằng (Balanced)** hay **mất cân bằng (Unbalanced)**.
     """)
 
 elif selected == "Nhập dữ liệu":
@@ -116,8 +127,10 @@ elif selected == "Kết quả":
         # Gọi model để dự đoán
         prediction = model.predict(input_df)[0]
 
-        st.write("### 🔮 Dự đoán")
-        st.success(f"Kết quả dự đoán: **{prediction}**")
+        if prediction.lower() == "unbalanced":
+            st.error(f"Kết quả dự đoán: **{prediction}**")  # màu đỏ
+        else:
+            st.success(f"Kết quả dự đoán: **{prediction}**")  # màu xanh lá
 
         # ================= Thống kê biểu đồ =================
         st.write("### 📊 Đánh giá thành phần dinh dưỡng")
